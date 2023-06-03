@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;">
+    <img [src]='img' class="card-img-top" alt="profile image">
+    <div class="card-body">
+      <h5 class="card-title">{{userDetail?.firstName+' '+userDetail?.lastName}}</h5>
+      <p class="card-text"><strong>Email</strong>: {{userDetail?.email}}</p>
+      <p class="card-text"><strong>phone</strong>: {{userDetail?.phone}}</p>
+      <button type="button" class="btn btn-success" (click)="changePicture()">Update Profile Picture</button>
+    </div>
+  </div>

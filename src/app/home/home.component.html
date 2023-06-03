@@ -1,0 +1,13 @@
+<div class="container py-4">
+  <a  routerLink="/create-user" type="button" class="btn btn-success ">Create User</a>
+    <ul class="list-group py-4">
+        <div *ngFor="let user of userList;">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{user.firstName + ' '+ user.lastName}}
+          <a [routerLink]="['/detail', user._id]"><span class="badge bg-success rounded-pill">Detail</span></a>
+          <a [routerLink]="['/update', user._id]"><span class="badge bg-primary rounded-pill">update</span></a>
+          <span class="badge bg-danger rounded-pill" (click)="deleteUser(user._id)">Delete</span>
+        </li>
+    </div>
+      </ul>
+    </div>

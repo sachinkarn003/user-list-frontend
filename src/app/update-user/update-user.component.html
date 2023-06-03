@@ -1,0 +1,39 @@
+<div class="py-4">
+  <button type="button" class="btn btn-primary" (click)="basicInfo()">Basic Detail Update</button>&nbsp; &nbsp;<button type="button" class="btn btn-secondary" (click)="picture()">Update Profile Picture</button>
+</div>
+<div *ngIf="basicDetail; else imageForm">
+<form (ngSubmit)="submitForm()">
+    <div>
+      <label for="First Name">First Name</label>
+      <input type="text" id="name" name="firstName" [(ngModel)]="userDetail.firstName" required>
+    </div>
+    <div>
+      <label for="Last Name">Last Name</label>
+      <input type="text" id="name" name="lastName" [(ngModel)]="userDetail.lastName" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="userDetail.email" required>
+    </div>
+    <div>
+      <label for="phone">phone</label>
+      <input type="text" id="phone" name="phone" [(ngModel)]="userDetail.phone" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<ng-template #imageForm>
+    <div class="form-group">
+        <h2>Image Upload Form</h2>
+        <form (ngSubmit)="uploadImage()">
+          <div>
+            <label for="file">Choose Image</label>
+            <input type="file" name="file" id="file" (change)="handleFileInput($event)" accept="image/*" />
+          </div>
+          <div>
+            <button type="submit" [disabled]="!selectedFile">Upload</button>
+          </div>
+        </form>
+    </div>
+</ng-template>
